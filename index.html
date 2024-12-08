@@ -22,9 +22,9 @@
                 <a href="#contact">Contact</a>
                 |
                 <div class="social-icons">
-                    <a href="#"><img src="./image/github icon nav.png"></a>
-                    <a href="#"><img src="./image/link icon nV.png"></a>
-                    <a href="#"><img src="./image/ig icon nav.png"></a>
+                    <a href="https://github.com/Algi221"><img src="./image/github icon nav.png"></a>
+                    <a href="https://www.tiktok.com/@acc_algii88?_t=8rxgoWfCPOZ&_r=1"><img src="./image/tiktok.png" style="width: 22px; height: auto;"></a>
+                    <a href="https://instagram.com/algi_pyc3s"><img src="./image/ig icon nav.png"></a>
                 </div>
             </div>
         </nav>
@@ -101,7 +101,8 @@
 
         
         <section id="skill">
-            <h1 text align="center">My Skill</h1>
+            <h1 text align="center" style="color:#FFD700;">My Skill</h1>
+            <br>
             <p text align="center">Saya cukup bisa dalam menguasai beberapa hal ini.</p>
             <div class="skills-icons">
                 <img src="./image/html.png" alt="HTML">
@@ -112,7 +113,8 @@
                 <img src="./image/AM.png" alt="AM">
             </div>
         </section>
-
+        <br>
+        <br>
         
         <section id="project">
             <div class="projek">
@@ -127,10 +129,16 @@
                 <div class="project-content">
                     <h2 class="project-title">MY PROJECT 1</h2>
                     <p class="project-description">Ini adalah projectt pertama saya mendesain menggunakan aplikasi Adobe illustrator yang bertema ANTI BULLYING serta membuat POSTER bertema ANTI BULLYING</p>
-                    <button class="see-projects-btn">see projects</button>
+                    <button class="see-projects-btn" onclick="showProjectImage('image/WhatsApp Image 2024-11-03 at 12.44.18_19266b2e.jpg')">see projects</button>
                 </div>
             </div>
-        
+            
+            <!-- Modal untuk menampilkan gambar proyekn 1 -->
+            <div id="projectImageModal" class="modal-1" style="display:none;">
+                <span class="close-1" onclick="closeProjectImage()">&times;</span>
+                 <img id="projectImage" alt="Project Image" class="size-1">
+              </div>
+
             <div class="project right">
                 <img src="./image/Screenshot 2024-11-05 134907.png" alt="Project 2" class="project-image2">
                 <div class="project-content">
@@ -145,34 +153,54 @@
                 <div class="project-content">
                     <h2 class="project-title">MY PROJECT 3</h2>
                     <p class="project-description">Sama halnya dengan pertama dan kedua saya yaitu menggunakan Adobe illustrator, tapi pada project ini saya membuat karakter Anime. A.K telah saya buat lewat penggayaan ini</p>
-                    <button class="see-projects-btn">see projects</button>
+                    <button class="see-projects-btn" onclick="showProjectImage('image/SUKUNA.jpg')">see projects</button>
                 </div>
             </div>
-        
+
+            <div id="projectImageModal" class="modal-3" style="display:none;">
+                <span class="close-3" onclick="closeProjectImage()">&times;</span>
+                 <img id="projectImage"  alt="Project Image" class="size-3">
+              </div>
+
             <div class="project right">
                 <img src="./image/Screenshot 2024-11-20 092229.png" alt="Project 4" class="project-image">
                 <div class="project-content">
                     <h2 class="project-title">MY PROJECT 4</h2>
                     <p class="project-description">Ini adalah project membuat website halaman login dan css menggunakan HTML dan CSS.</p>
-                    <button class="see-projects-btn">see projects</button>
+                    <button class="see-projects-btn" onclick="window.open('https://www.figma.com/design/a8RTwjTYvNm2a7FLvTM9Ey/Cal---DEV?node-id=16-2&t=Q09K8pL4NBAHduZ4-1')" >see projects</button>
                 </div>
             </div>
-                <div class="feedback-section">
+        
+        
+            <div class="feedback-section">
                     <h2>Feedback</h2>
                     <h1>Share Your Thoughts</h1>
                     <div class="feedback-container">
                         <div class="feedback-content">
-                            <form action="https://formspree.io/f/mbljqkjl" method="POST"></form>
-                            <form>
-                                <input type="text" placeholder="Name" required>
-                                <input type="email" placeholder="Email" required>
-                                <textarea placeholder="Your message"></textarea>
-                                <button type="submit">Submit Feedback</button>
-                            </form>
+                            <div class="feedback-form">
+                        <form action="https://formspree.io/f/xnnqyjpj" method="POST" id="feedbackForm" >
+                            <label>
+                                Your Gmail :
+                                <input type="email" name="email" placeholder="Example:Algigantengbanget12@gmail.com" required>
+                            </label>
+
+                            <label>
+                                Your Name:
+                                <input type="text" name="name" placeholder="Example:Algiganteng" required>
+                            </label>
+            
+                            <label>
+                                Your Messege :
+                                <textarea name="message" placeholder="Kerennn banget sih kamu" required></textarea>
+                            </label>
+                                <button type="submit">Send Feedback</button>
+                            <p id="my-form-status"></p>
                         </form>
+                           </div>
                             <img src="./image/8e448b3ebb265a1762807a54cb03fe06-removebg-preview.png" alt="Yout Photo" class="feedback-photo">
                         </div>
                     </div>
+                </div>
                 
             <div class="contact-section">
                 <section id="contact">
@@ -193,11 +221,13 @@
                     <a href="https://telegram.org/dl" target="_blank" class="button-Contact">
                         <img src="./image/telegram.png" alt="Telegram Icon"> https://telegram.org/dl</a>
                 </div>
-                <footer>
-                    &copy;2024 Made By Algifahri
-                </footer>
+                
             </div>
         </section>
-    </div>
+
+        <button id="scrollToTopBtn" style="display: none;">Scrool to top</button>
+        <script src="./js/script.js"></script>
 </body>
+<footer text align="center">&copy;2024 Made By Algifahri</footer>
+<br>
 </html>

@@ -4,11 +4,15 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+html{
+    scroll-behavior: smooth; /* Menambahkan efek scroll halus */
+}
 
 body {
     background-color: #1a1a1a;
     color: white;
     display: flex;
+    font-family: Arial, sans-serif;
 }
 
 .container {
@@ -128,6 +132,14 @@ nav {
     line-height: 1.6;
     color: #ccc;
 }
+.photo {
+    width: 200px; /* Atur lebar gambar */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transisi untuk efek hover */
+        }
+.photo:hover {
+    transform: scale(1.1); /* Zoom in saat hover */
+    opacity: 0.8; /* Mengubah opacity saat hover */
+}
 
 /* About Section */
 #about {
@@ -222,13 +234,7 @@ nav {
     padding: 60px 20px;
 }
 
-.My-skill {
-    
-    text-transform: uppercase;
-    font-size: 18px;
-    margin-bottom: 30px;
-    text-align: center;
-}
+
 
 .skills-icons {
     display: flex;
@@ -239,8 +245,8 @@ nav {
 }
 
 .skills-icons img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     border-radius: 8px;
     transition: transform 0.3s, border 0.3s; /* Efek transisi saat hover */
@@ -258,8 +264,9 @@ nav {
 
 .project-label {
     color: #ffeb3b;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    margin-bottom:  30px;
+    text-transform: uppercase;
 }
 
 .portfolio-title {
@@ -282,8 +289,66 @@ nav {
     display: flex;
     margin-bottom: 40px;
     align-items: flex-start;
+    position: relative; /* Posisi relatif untuk efek overlay */
+    overflow: hidden; /* Menyembunyikan bagian gambar yang melampaui batas */
+
+}
+/*showprojek*/
+.modal-1 {
+    display: none; /* Sembunyikan modal secara default */
+    position: fixed; /* Tetap di tempat */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Tambahkan scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap */
+    justify-content: center; /* Pusatkan konten */
+    align-items: center; /* Pusatkan konten */
 }
 
+.size-1 {
+    max-width: 50%; /* Maksimal lebar gambar */
+    max-height: 90%; /* Maksimal tinggi gambar */
+}
+
+
+.close-1 {
+    position: absolute; /* Posisi absolut */
+    top: 20px; /* Jarak dari atas */
+    right: 30px; /* Jarak dari kanan */
+    color: white; /* Warna teks */
+    font-size: 40px; /* Ukuran font */
+    font-weight: bold; /* Tebal */
+    cursor: pointer; /* Kursor pointer */
+}
+.modal-3 {
+    display: none; /* Sembunyikan modal secara default */
+    position: fixed; /* Tetap di tempat */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Tambahkan scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang gelap */
+    justify-content: center; /* Pusatkan konten */
+    align-items: center; /* Pusatkan konten */
+}
+.size-3 {
+    max-width: 90%;
+    max-height: 90%;
+}
+.close-3 {
+    position: absolute; /* Posisi absolut */
+    top: 20px; /* Jarak dari atas */
+    right: 30px; /* Jarak dari kanan */
+    color: white; /* Warna teks */
+    font-size: 40px; /* Ukuran font */
+    font-weight: bold; /* Tebal */
+    cursor: pointer; /* Kursor pointer */
+}
 .project.right {
     flex-direction: row-reverse;
     text-align: right;
@@ -292,17 +357,31 @@ nav {
 .project-content {
     flex: 1;
     padding: 20px;
+    background-color: rgba(53, 53, 53, 0.7);
+    color: white; /* Warna teks */
+    border-radius: 15px; /* Sudut membulat untuk latar belakang */
+    transition: background-color 0.3s ease; /* Efek transisi untuk latar belakang */
+}
+.project:hover .project-content {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .project-image {
     width: 250px;
     border-radius: 10px;
     margin: 0 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Efek transisi saat hover */
 }
 .project-image2 {
     width: 300px;
     border-radius: 10px;
     margin: 0 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Efek transisi saat hover */
+}
+.project:hover .project-image,
+.project:hover .project-image2 {
+    transform: scale(1.05); /* Memperbesar gambar saat hover */
+    opacity: 0.8; /* Mengurangi opasitas saat hover */
 }
 
 .project-title {
@@ -431,6 +510,12 @@ nav {
     text-align: center;
     font-size: 16px;
     display: inline-block;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s; /* Transisi untuk efek hover */
+}
+.button-Contact:hover{
+    background-color: #358e3f; /* Warna saat hover */
+            transform: scale(1.05); /* Zoom in saat hover */
 }
 .separator {
     width: 100px;
@@ -449,80 +534,7 @@ img {
     height: auto; /* Sesuaikan tinggi gambar secara proporsional */
 }
 
-/* Media Query untuk Responsivitas */
-@media (max-width: 200px) {
-    .hero-content {
-        grid-template-columns: 1fr; /* Ubah menjadi satu kolom di mobile */
-        padding: 20px; /* Tambahkan padding */
-    }
-
-    .hero-left h1 {
-        font-size: 32px; /* Sesuaikan ukuran font */
-    }
-
-    .hero-right h2 {
-        font-size: 12px; /* Sesuaikan ukuran font */
-    }
-
-    .hero-right h3 {
-        font-size: 20px; /* Sesuaikan ukuran font */
-    }
-
-    .about-content {
-        grid-template-columns: 1fr; /* Ubah menjadi satu kolom di mobile */
-        text-align: center; /* Rata tengah teks */
-    }
-
-    .hobby-images {
-        flex-direction: column; /* Ubah menjadi kolom di mobile */
-        align-items: center; /* Rata tengah gambar */
-    }
-
-    .skills-icons {
-        flex-wrap: wrap; /* Membuat ikon keterampilan menjadi responsif */
-        justify-content: center; /* Rata tengah ikon */
-    }
-
-    .skills-icons img {
-        width: 60px; /* Sesuaikan ukuran ikon */
-        height: 60px; /* Sesuaikan ukuran ikon */
-        margin: 10px; /* Tambahkan margin untuk jarak antar ikon */
-    }
-
-    .project {
-        flex-direction: column; /* Ubah menjadi kolom di mobile */
-        align-items: center; /* Rata tengah elemen */
-    }
-
-    .project img {
-        width: 100%; /* Gambar menyesuaikan lebar kontainer */
-        height: auto; /* Sesuaikan tinggi gambar */
-    }
-
-    .project-info {
-        max-width: 90%; /* Sesuaikan lebar kontainer informasi proyek */
-        text-align: center; /* Rata tengah teks */
-    }
-
-    .contact-buttons {
-        flex-direction: column; /* Ubah menjadi kolom di mobile */
-        align-items: center; /* Rata tengah tombol */
-    }
-
-    .button-Contact {
-        width: 100%; /* Tombol menyesuaikan lebar */
-        margin: 10px 0; /* Tambahkan margin untuk jarak antar tombol */
-    }
-
-    .feedback-container {
-        flex-direction: column; /* Ubah menjadi kolom di mobile */
-    }
-
-    .feedback-illustration {
-        display: none; /* Sembunyikan ilustrasi di mobile */
-    }
-}
-    .feedback-content {
+.feedback-content {
         display:flex;
         align-items: center;
     }
@@ -547,4 +559,21 @@ img {
         width: 25px; /* Atur lebar ikon sesuai kebutuhan */
         height: auto; /* Biarkan tinggi otomatis agar proporsional */
         margin-right: 20px; /* Jarak antara ikon dan teks */
+    }
+    #scrollToTopBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #FFD700;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+        display: none; /* Sembunyikan tombol secara default */
+    }
+    
+    #scrollToTopBtn:hover {
+        background-color: #358e3f; /* Warna saat hover */
     }
